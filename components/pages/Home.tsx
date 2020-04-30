@@ -9,8 +9,21 @@ import Title from '../common/Title';
 import CardsGrid from '../common/CardsGrid';
 import Card from '../common/Card';
 import SimpleDialog from '../common/SimpleDialog';
+import { HomePageInterface } from '../../types';
 
-const Home = ({ posts, message, handleClose }) => {
+interface PostType {
+  title: string;
+  body: string;
+  id: string;
+}
+
+interface ComponentsProps {
+  posts: Array<PostType>;
+  message: string;
+  handleClose: () => void;
+}
+
+const Home = ({ posts, message, handleClose }: HomePageInterface) => {
   return (
     <Container>
       <Head>

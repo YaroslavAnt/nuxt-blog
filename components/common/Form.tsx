@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Paper, Button } from '@material-ui/core';
+import { FormInterface } from '../../types';
 
 const StyledForm = styled.form`
   display: flex;
@@ -38,13 +39,12 @@ const StyledArea = styled.textarea`
   height: 200px;
 `;
 
-const Form = ({ onSubmit }) => {
+const Form = ({ onSubmit }: FormInterface) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ title });
     onSubmit(title, body);
     setTitle('');
     setBody('');
@@ -61,7 +61,6 @@ const Form = ({ onSubmit }) => {
           placeholder="Title"
         />
         <StyledArea
-          type="text"
           value={body}
           onChange={({ target }) => setBody(target.value)}
           name="body"

@@ -21,6 +21,6 @@ const StyledDescription = styled.p`
   }
 `;
 
-const Description = ({ children }) => <StyledDescription>{children}</StyledDescription>;
+const Description: React.FC = ({ children }) => <StyledDescription>{children}</StyledDescription>;
 
 export default Description;

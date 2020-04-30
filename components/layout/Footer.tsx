@@ -20,7 +20,7 @@ export const StyledFooter = styled.footer`
   }
 `;
 
-const Footer = ({ children }) => {
+const Footer: React.FC = ({ children }) => {
   return <StyledFooter>{children}</StyledFooter>;
 };
 

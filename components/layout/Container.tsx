@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
   align-items: center;
 `;
 
-const Container = ({ children }) => {
+const Container: React.FC = ({ children }) => {
   return <StyledContainer>{children}</StyledContainer>;
 };
 

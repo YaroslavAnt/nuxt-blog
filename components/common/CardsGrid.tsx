@@ -14,7 +14,7 @@ export const StyledGrid = styled.div`
   }
 `;
 
-const CardsGrid = ({ children }) => {
+const CardsGrid: React.FC = ({ children }) => {
   return <StyledGrid>{children}</StyledGrid>;
 };
 

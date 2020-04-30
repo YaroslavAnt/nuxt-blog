@@ -11,7 +11,7 @@ export const StyledMain = styled.main`
   width: 100%;
 `;
 
-const Main = ({ children }) => {
+const Main: React.FC = ({ children }) => {
   return <StyledMain>{children}</StyledMain>;
 };
 

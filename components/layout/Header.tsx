@@ -22,7 +22,7 @@ export const StyledHeader = styled.header`
   }
 `;
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <StyledHeader>
       <Link href="/">

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
+import { CardInterface } from '../../types';
 
 export const StyledCard = styled.a`
   margin: 1rem;
@@ -33,7 +34,7 @@ export const StyledCard = styled.a`
   }
 `;
 
-const Card = ({ title, body, id }) => {
+const Card = ({ title, body, id }: CardInterface) => {
   return (
     <Link href="/posts/[id]" as={`/posts/${id}`}>
       <StyledCard>

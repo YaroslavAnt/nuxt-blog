@@ -7,8 +7,9 @@ import Header from '../layout/Header';
 import Main from '../layout/Main';
 import SimpleDialog from '../common/SimpleDialog';
 import Title from '../common/Title';
+import { PostPageInterface } from '../../types';
 
-const Post = ({ post, message, handleClose }) => {
+const Post = ({ post, message, handleClose }: PostPageInterface) => {
   const { title, comments, body } = post;
 
   return (

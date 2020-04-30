@@ -9,6 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Typography from '@material-ui/core/Typography';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import { CommentInterface } from '../../types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +21,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Comments({ comments = [] }) {
+type ComponentProps = {
+  comments: Array<CommentInterface>;
+};
+
+const Comments = ({ comments = [] }: ComponentProps) => {
   const classes = useStyles();
 
   const commentsList = (
@@ -48,4 +53,6 @@ export default function Comments({ comments = [] }) {
       No comments yet
     </Typography>
   );
-}
+};
+
+export default Comments;

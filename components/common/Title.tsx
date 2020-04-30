@@ -20,6 +20,6 @@ const StyledTitle = styled.h1`
   }
 `;
 
-const Title = ({ children }) => <StyledTitle>{children}</StyledTitle>;
+const Title: React.FC = ({ children }) => <StyledTitle>{children}</StyledTitle>;
 
 export default Title;

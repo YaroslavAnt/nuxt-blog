@@ -3,8 +3,9 @@ import Button from '@material-ui/core/Button';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import { DialogContent, DialogActions } from '@material-ui/core';
+import { DialogInterface } from '../../types';
 
-export default function SimpleDialog(props) {
+const SimpleDialog = (props: DialogInterface) => {
   const { onClose, open, message } = props;
 
   return (
@@ -18,4 +19,6 @@ export default function SimpleDialog(props) {
       </DialogActions>
     </Dialog>
   );
-}
+};
+
+export default SimpleDialog;
