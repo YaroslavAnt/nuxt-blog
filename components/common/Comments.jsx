@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-wrap-multilines */
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
@@ -26,7 +26,7 @@ export default function Comments({ comments = [] }) {
   const commentsList = (
     <List className={classes.root}>
       {comments.map((comment, idx) => (
-        <React.Fragment key={comment.width}>
+        <React.Fragment key={comment.id}>
           {idx !== 0 && <Divider variant="inset" component="li" />}
           <ListItem alignItems="center">
             <ListItemAvatar>

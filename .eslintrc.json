@@ -3,6 +3,7 @@
   "rules": {
     "linebreak-style": ["off", "windows"],
     "jsx-a11y/anchor-is-valid": "off",
-    "arrow-body-style": "warn"
+    "arrow-body-style": "warn",
+    "sort-imports": "warn"
   }
 }

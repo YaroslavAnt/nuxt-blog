@@ -8,35 +8,38 @@ import Main from '../layout/Main';
 import Title from '../common/Title';
 import CardsGrid from '../common/CardsGrid';
 import Card from '../common/Card';
+import SimpleDialog from '../common/SimpleDialog';
 
-const Home = ({ posts }) => (
-  <Container>
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+const Home = ({ posts, message, handleClose }) => {
+  return (
+    <Container>
+      <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-    <Header />
+      <Header />
 
-    <Main>
-      <Title>
-        Wellcome to
-        <Link href="/posts/new">
-          <a> Next.js </a>
-        </Link>
-        app blog
-      </Title>
+      <Main>
+        <Title>
+          Wellcome to
+          <Link href="/posts/new">
+            <a> Next.js </a>
+          </Link>
+          app blog
+        </Title>
 
-      <CardsGrid>
-        {posts.map((post) => {
-          const { title, body, id } = post;
-          return <Card title={title} body={body} id={id} key={id} />;
-        })}
-      </CardsGrid>
-    </Main>
+        <CardsGrid>
+          {posts.map((post) => {
+            const { title, body, id } = post;
+            return <Card title={title} body={body} id={id} key={id} />;
+          })}
+        </CardsGrid>
+      </Main>
 
-    {/* <SimpleDialog onClose={handleClose} open={isDialogOpen} message={message} /> */}
-  </Container>
-);
+      <SimpleDialog onClose={handleClose} open={Boolean(message)} message={message} />
+    </Container>
+  );
+};
 
 export default Home;

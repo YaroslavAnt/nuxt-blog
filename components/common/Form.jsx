@@ -16,14 +16,14 @@ const inputBase = css`
   border: 1px solid #aaa;
   width: 300px;
   font-size: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-    'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
 
   ::placeholder {
     font-size: 1rem;
     color: #aaa;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+      'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
   }
 `;
@@ -42,9 +42,17 @@ const Form = ({ onSubmit }) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({ title });
+    onSubmit(title, body);
+    setTitle('');
+    setBody('');
+  };
+
   return (
     <Paper elevation={3}>
-      <StyledForm onSubmit={() => onSubmit(title, body)}>
+      <StyledForm onSubmit={handleSubmit}>
         <StyledInput
           type="text"
           value={title}
@@ -59,7 +67,7 @@ const Form = ({ onSubmit }) => {
           name="body"
           placeholder="Description"
         />
-        <Button>Submit</Button>
+        <Button type="submit">Submit</Button>
       </StyledForm>
     </Paper>
   );

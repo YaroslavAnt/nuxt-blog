@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 
 export const StyledCard = styled.a`
   margin: 1rem;
@@ -35,7 +35,7 @@ export const StyledCard = styled.a`
 
 const Card = ({ title, body, id }) => {
   return (
-    <Link href={`/posts/${id}`}>
+    <Link href="/posts/[id]" as={`/posts/${id}`}>
       <StyledCard>
         <h3>
           {title}

@@ -1,45 +1,39 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { decrementCounter, incrementCounter } from '../redux/actions/counterActions';
 import Home from '../components/pages/Home';
-import apiClient from '../api/apiClient';
-import { setPosts } from '../redux/actions/appActions';
+import { fetchPosts, setMessage } from '../redux/actions/appActions';
 
 class App extends React.Component {
-  static getInitialProps({ store }) {}
+  // static getInitialProps({ store }) {}
 
   async componentDidMount() {
-    const { dispatchSetPosts } = this.props;
+    const { dispatchSetMessage, dispatchFetchPosts } = this.props;
     try {
-      const { data: fetchedPosts } = await apiClient.get('/');
-      dispatchSetPosts(fetchedPosts);
-    } catch (error) {}
+      dispatchFetchPosts();
+    } catch (error) {
+      dispatchSetMessage('Fail to load');
+    }
   }
 
-  render() {
-    console.log(this.props);
-    const { posts, counter, incrementCounter, decrementCounter } = this.props;
-    return (
-      <div>
-        <button onClick={incrementCounter}>Increment</button>
-        <button onClick={decrementCounter}>Decrement</button>
-        <h1>{counter}</h1>
+  handleClose = () => {
+    const { dispatchSetMessage } = this.props;
+    dispatchSetMessage('');
+  };
 
-        <Home posts={posts} />
-      </div>
-    );
+  render() {
+    const { posts, message } = this.props;
+    return <Home posts={posts} message={message} handleClose={this.handleClose} />;
   }
 }
 
 const mapStateToProps = (state) => ({
-  counter: state.counter.value,
   posts: state.app.posts,
+  message: state.app.message,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  incrementCounter,
-  decrementCounter,
-  dispatchSetPosts: (posts) => dispatch(setPosts(posts)),
+  dispatchFetchPosts: () => dispatch(fetchPosts()),
+  dispatchSetMessage: (message) => dispatch(setMessage(message)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
